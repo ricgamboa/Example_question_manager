@@ -1,0 +1,6 @@
+{
+  "COLLECTION_SIZE": 100,
+  "NUM_ICONS_SENDER": 5,
+  "POSITION_LIST_SIZE": 15,
+  "QUESTION_DATABASE_PATH": "D:\\Documentos\\GENERALES\\sistema encriptacion\\Programas_ver2\\Example_question_manager\\question_database.sqlite"
+}
