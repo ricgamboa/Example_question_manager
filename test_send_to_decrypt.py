@@ -38,7 +38,8 @@ def find_answer(question_id, user_id):
 def send_answer(url, answer_send):
 
     try:
-        response = requests.post(url=url, json=answer_send)
+        header = {"content-type": "application/json"}
+        response = requests.post(url=url, data=json.dumps(answer_send), headers=header)
     except requests.exceptions.RequestException as e:
         raise SystemExit(e)
     print("Status code: ", response.status_code)
@@ -47,7 +48,8 @@ def send_answer(url, answer_send):
 def send_question(url, question_send):
 
     try:
-        response = requests.post(url=url, json=question_send)
+        header = {"content-type": "application/json"}
+        response = requests.post(url=url, data=json.dumps(question_send), headers=header)
     except requests.exceptions.RequestException as e:
         raise SystemExit(e)
     print("Status code: ", response.status_code)
@@ -68,9 +70,9 @@ def main():
     user_id = input("Enter user global id: ")
     question_id = input("Enter questtion global id: ")
 
-    answer = json.dumps(find_answer(question_id, user_id))
+    answer = find_answer(question_id, user_id)
 
-    question = json.dumps(find_question(question_id))
+    question = find_question(question_id)
 
     url_send_answer = "http://localhost:8080/new_answer/"
     url_send_question = "http://localhost:8080/new_question/"

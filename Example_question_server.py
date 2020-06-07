@@ -18,6 +18,7 @@ def main():
         # Select a random question
         qid = randint(100, 110)
         question = test_manage_questions.find_question(qid)
+        question["custom_info"] = "additional question information"
         return jsonify(question)
 
     @app.route('/new_answer/', methods=["GET", "POST"])
